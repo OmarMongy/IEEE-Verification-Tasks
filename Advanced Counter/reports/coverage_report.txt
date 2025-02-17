@@ -1,0 +1,351 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /AdvancedCounter_tb/DUT
+=== Design Unit: work.AdvancedCounter
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         7         7         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /AdvancedCounter_tb/DUT
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File AdvancedCounter.sv
+------------------------------------IF Branch------------------------------------
+    13                                        26     Count coming in to IF
+    13              1                          2         if (rst == 1'b1) begin
+    15              1                          6         end else if (load == 1'b1) begin
+    17              1                          1         end else if (hold == 1'b1) begin
+    19              1                         17         end else begin
+Branch totals: 4 hits of 4 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    20                                        17     Count coming in to IF
+    20              1                          9             if (en_inc == 1'b1) begin
+    22              1                          6             end else if (en_dec == 1'b1) begin
+                                               2     All False Count
+Branch totals: 3 hits of 3 branches = 100.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       6         6         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /AdvancedCounter_tb/DUT --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File AdvancedCounter.sv
+    1                                                module AdvancedCounter (
+    2                                                    input wire clk,
+    3                                                    input wire rst,
+    4                                                    input wire en_inc,
+    5                                                    input wire en_dec,
+    6                                                    input wire load,
+    7                                                    input wire hold,
+    8                                                    input wire [3:0] load_value,
+    9                                                    output reg [3:0] count
+    10                                               );
+    11                                               
+    12              1                         26     always @(posedge clk) begin
+    13                                                   if (rst == 1'b1) begin
+    14              1                          2             count <= 4'd0; // Reset condition
+    15                                                   end else if (load == 1'b1) begin
+    16              1                          6             count <= load_value; // Load new value
+    17                                                   end else if (hold == 1'b1) begin
+    18              1                          1             count <= count; // Hold current value
+    19                                                   end else begin
+    20                                                       if (en_inc == 1'b1) begin
+    21              1                          9                 count <= count + 1; // Increment condition
+    22                                                       end else if (en_dec == 1'b1) begin
+    23              1                          6                 count <= count - 1; // Decrement condition
+
+
+=================================================================================
+=== Instance: /AdvancedCounter_tb
+=== Design Unit: work.AdvancedCounter_tb
+=================================================================================
+
+Covergroup Coverage:
+    Covergroups                      1        na        na   100.00%
+        Coverpoints/Crosses          6        na        na        na
+            Covergroup Bins          7         7         0   100.00%
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /AdvancedCounter_tb/counter_cg                  100.00%        100          -    Covered              
+    covered/total bins:                                     7          7          -                      
+    missing/total bins:                                     0          7          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint rst                                    100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint load                                   100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint hold                                   100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint en_inc                                 100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint en_dec                                 100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint count                                  100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+ Covergroup instance \/AdvancedCounter_tb/cg          100.00%        100          -    Covered              
+    covered/total bins:                                     7          7          -                      
+    missing/total bins:                                     0          7          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint rst                                    100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin active                                          2          1          -    Covered              
+    Coverpoint load                                   100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin active                                          6          1          -    Covered              
+    Coverpoint hold                                   100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin active                                          2          1          -    Covered              
+    Coverpoint en_inc                                 100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin active                                         11          1          -    Covered              
+    Coverpoint en_dec                                 100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin active                                          9          1          -    Covered              
+    Coverpoint count                                  100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin min_value                                       6          1          -    Covered              
+        bin max_value                                       3          1          -    Covered              
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      42        42         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /AdvancedCounter_tb --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File AdvancedCounter_tb.sv
+    3                                                module AdvancedCounter_tb;
+    4                                                
+    5                                                    // Testbench Signals
+    6                                                    logic clk;
+    7                                                    logic rst;
+    8                                                    logic en_inc;
+    9                                                    logic en_dec;
+    10                                                   logic load;
+    11                                                   logic hold;
+    12                                                   logic [3:0] load_value;
+    13                                                   logic [3:0] count;
+    14                                               
+    15                                                   // Clock Generation 
+    16              1                         54         always #10 clk = ~clk;
+    16              2                         53     
+    17                                               
+    18                                                   // DUT Instantiation
+    19                                                   AdvancedCounter DUT (
+    20                                                       .clk(clk),
+    21                                                       .rst(rst),
+    22                                                       .en_inc(en_inc),
+    23                                                       .en_dec(en_dec),
+    24                                                       .load(load),
+    25                                                       .hold(hold),
+    26                                                       .load_value(load_value),
+    27                                                       .count(count)
+    28                                                   );
+    29                                               
+    30                                                   // Functional Coverage
+    31                                                   covergroup counter_cg @(posedge clk);
+    32                                                       coverpoint rst { bins active = {1}; } // Reset coverage
+    33                                                       coverpoint load { bins active = {1}; } // Load coverage
+    34                                                       coverpoint hold { bins active = {1}; } // Hold coverage
+    35                                                       coverpoint en_inc { bins active = {1}; } // Increment coverage
+    36                                                       coverpoint en_dec { bins active = {1}; } // Decrement coverage
+    37                                                       coverpoint count {
+    38                                                           bins min_value = {4'b0000};
+    39                                                           bins max_value = {4'b1111};
+    40                                                       } // Min & Max value coverage
+    41                                                   endgroup
+    42                                               
+    43              1                          1         counter_cg cg = new(); // Instantiate coverage
+    44                                               
+    45                                                   // Stimulus Task
+    46                                                   task apply_stimulus(
+    47                                                       input logic rst_in,
+    48                                                       input logic load_in,
+    49                                                       input logic hold_in,
+    50                                                       input logic en_inc_in,
+    51                                                       input logic en_dec_in,
+    52                                                       input logic [3:0] load_val
+    53                                                   );
+    54              1                         12             rst = rst_in;
+    55              1                         12             load = load_in;
+    56              1                         12             hold = hold_in;
+    57              1                         12             en_inc = en_inc_in;
+    58              1                         12             en_dec = en_dec_in;
+    59              1                         12             load_value = load_val;
+    60              1                         12             #20; // Wait for a clock cycle
+    61                                                   endtask
+    62                                               
+    63                                                   // Test Sequence
+    64                                                   initial begin
+    65                                                       // Initialize
+    66              1                          1             clk = 0;
+    67              1                          1             rst = 0;
+    68              1                          1             en_inc = 0;
+    69              1                          1             en_dec = 0;
+    70              1                          1             load = 0;
+    71              1                          1             hold = 0;
+    72              1                          1             load_value = 4'b0000;
+    73                                               
+    74                                                       // Monitor Output
+    75              1                          1             $monitor("Time=%0t | rst=%b | load=%b | hold=%b | en_inc=%b | en_dec=%b | count=%b",
+    76                                                                $time, rst, load, hold, en_inc, en_dec, count);
+    77                                               
+    78                                                       // Reset Test
+    79              1                          1             apply_stimulus(1, 0, 0, 0, 0, 4'b0000);
+    80              1                          1             #20;
+    81              1                          1             apply_stimulus(0, 0, 0, 0, 0, 4'b0000);
+    82                                               
+    83                                                       // Load Test
+    84              1                          1             apply_stimulus(0, 1, 0, 0, 0, 4'b1010);
+    85              1                          1             #20;
+    86              1                          1             apply_stimulus(0, 0, 0, 0, 0, 4'b0000);
+    87                                               
+    88                                                       // Hold Test
+    89              1                          1             apply_stimulus(0, 0, 1, 1, 0, 4'b0000);
+    90              1                          1             #20;
+    91                                               
+    92                                                       // Increment Test
+    93              1                          1             apply_stimulus(0, 0, 0, 1, 0, 4'b0000);
+    94              1                          1             #40;
+    95                                               
+    96                                                       // Decrement Test
+    97              1                          1             apply_stimulus(0, 0, 0, 0, 1, 4'b0000);
+    98              1                          1             #40;
+    99                                               
+    100                                                      // Simultaneous Increment & Decrement (Should hold value)
+    101             1                          1             apply_stimulus(0, 0, 0, 1, 1, 4'b0000);
+    102             1                          1             #40;
+    103                                              
+    104                                                      // Boundary Test (Max Value)
+    105             1                          1             apply_stimulus(0, 1, 0, 0, 0, 4'b1111);
+    106             1                          1             #20;
+    107             1                          1             apply_stimulus(0, 0, 0, 1, 0, 4'b0000);
+    108             1                          1             #40;
+    109                                              
+    110                                                      // Boundary Test (Min Value)
+    111             1                          1             apply_stimulus(0, 1, 0, 0, 0, 4'b0000);
+    112             1                          1             #20;
+    113             1                          1             apply_stimulus(0, 0, 0, 0, 1, 4'b0000);
+    114             1                          1             #40;
+    115                                              
+    116                                                      // End Test
+    117             1                          1             $display("Test Completed.");
+    118             1                          1             $stop;
+
+
+COVERGROUP COVERAGE:
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /AdvancedCounter_tb/counter_cg                  100.00%        100          -    Covered              
+    covered/total bins:                                     7          7          -                      
+    missing/total bins:                                     0          7          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint rst                                    100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint load                                   100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint hold                                   100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint en_inc                                 100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint en_dec                                 100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint count                                  100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+ Covergroup instance \/AdvancedCounter_tb/cg          100.00%        100          -    Covered              
+    covered/total bins:                                     7          7          -                      
+    missing/total bins:                                     0          7          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint rst                                    100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin active                                          2          1          -    Covered              
+    Coverpoint load                                   100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin active                                          6          1          -    Covered              
+    Coverpoint hold                                   100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin active                                          2          1          -    Covered              
+    Coverpoint en_inc                                 100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin active                                         11          1          -    Covered              
+    Coverpoint en_dec                                 100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin active                                          9          1          -    Covered              
+    Coverpoint count                                  100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin min_value                                       6          1          -    Covered              
+        bin max_value                                       3          1          -    Covered              
+
+TOTAL COVERGROUP COVERAGE: 100.00%  COVERGROUP TYPES: 1
+
+Total Coverage By Instance (filtered view): 100.00%
+
